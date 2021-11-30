@@ -56,12 +56,27 @@ export function maxAndMin(numbers) {
  *
  */
 export function countArray(array) {
-    let keys = [];
-    let counts = [];
-    for (let i=0; i<array.length;i++) {
+
+    let entries = [];
+    let count = [];
+    let exist = false;
+    for (let i=0; i<array.length; i++) {
+        let current = array[i];
+        for (let j=0; j<entries.length; j++) {
+            if (current === entries[j]) {
+                count[j]++;
+                exist = true;
+                break;
+            }
+        }
+        if (exist === false) {
+            entries.push(current);
+            count.push(1);
+        }
+        exist = false;
 
     }
-
-
-
+    let summary = {};
+    entries.forEach((entry, i) => summary[entry] = count[i]);
+    return summary;
 }
