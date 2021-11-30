@@ -50,7 +50,6 @@ export function removeKey(object, key) {
  delete object[key];
 }
 
-
 /**
  * Does not mutate the object passed in
  * @param object
@@ -68,7 +67,8 @@ export function removeKey(object, key) {
  If only `removeKeyNonDestructive` was called, nothing would have changed.
  */
 export function removeKeyNonDestructive(object, key) {
-
+ removeKey(object, key);
+ return object;
 }
 
 /**
