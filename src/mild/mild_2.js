@@ -48,7 +48,7 @@ export function identifyArray(array) {
  obj now does not contain the `password` field
  */
 export function removeKey(object, key) {
- delete object[key]
+ delete object[key];
 }
 
 
@@ -69,8 +69,7 @@ export function removeKey(object, key) {
  If only `removeKeyNonDestructive` was called, nothing would have changed.
  */
 export function removeKeyNonDestructive(object, key) {
- object = removeKey(object, key);
- return object;
+
 }
 
 /**
@@ -80,8 +79,6 @@ export function removeKeyNonDestructive(object, key) {
  * see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
  *
  * example:
-
-
  let obj = {
     name: 'Mr. Boss',
     title: 'boss',
@@ -95,5 +92,7 @@ export function removeKeyNonDestructive(object, key) {
  * @return {*} The object with its keys removed.
  */
 export function removeKeys(object, keyList) {
-
+ for (let i=0; i<keyList.length;i++) {
+  removeKey(object, keyList[i]);
+ }
 }
