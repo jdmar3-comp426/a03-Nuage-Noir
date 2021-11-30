@@ -3,6 +3,9 @@ import {identifyArray} from "./src/mild/mild_2.js";
 import {removeKey} from "./src/mild/mild_2.js";
 
 
-console.log(identifyVariable(4))
-console.log(identifyArray(['some', 3, [3, 4], false]))
-console.log(removeKey())
+const test = {
+    a: 100,
+    b: 200
+};
+console.log(delete test.a)
+console.log(test)
