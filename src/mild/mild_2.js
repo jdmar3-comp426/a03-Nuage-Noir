@@ -9,7 +9,6 @@ export function identifyVariable(variable) {
  return {type: typeof(variable), value: variable}
 }
 
-
 /**
  *
  * @param array
@@ -95,4 +94,5 @@ export function removeKeys(object, keyList) {
  for (let i=0; i<keyList.length;i++) {
   removeKey(object, keyList[i]);
  }
+ return object;
 }
