@@ -1,16 +1,6 @@
-import {identifyVariable, removeKeyNonDestructive, removeKeys} from "./src/mild/mild_2.js";
-import {identifyArray} from "./src/mild/mild_2.js";
-import {removeKey} from "./src/mild/mild_2.js";
+import {getMedian, getStatistics} from "./src/medium/medium_1.js";
 
+let a = [3,2,4,5,5,5,2,6,7];
 
-let test = {
-    a: 100,
-    b: 200,
-    c: 300
-};
-
-let keys = ['b','c'];
-console.log(test)
-console.log(removeKeyNonDestructive(test, 'a'))
-console.log(removeKeys(test, keys))
+console.log(getStatistics(a));
 

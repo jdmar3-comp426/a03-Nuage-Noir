@@ -56,8 +56,11 @@ export function maxAndMin(numbers) {
  *
  */
 export function countArray(array) {
-    let keys = []
-    let counts = []
+    let keys = [];
+    let counts = [];
+    for (let i=0; i<array.length;i++) {
+
+    }
 
 
 
