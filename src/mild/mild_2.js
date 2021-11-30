@@ -67,7 +67,9 @@ export function removeKey(object, key) {
  If only `removeKeyNonDestructive` was called, nothing would have changed.
  */
 export function removeKeyNonDestructive(object, key) {
- removeKey(object, key);
+ if (object != null && key != null) {
+  removeKey(object, key);
+ }
  return object;
 }
 
