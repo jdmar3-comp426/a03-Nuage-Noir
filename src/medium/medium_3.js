@@ -54,7 +54,6 @@ export function searchMpg(car_data, minCity, minHighway) {
     return cars;
 }
 
-
 /**
  * Find all cars where 'id' contains the search term below.
  * Sort the results so that if the term appears earlier in the string
@@ -64,7 +63,16 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
-
+    let cars = [...car_data];
+    let res = [];
+    for (let i=0; i<cars.length; i++) {
+        let car = cars[i];
+        if (car['id'] === searchTerm) {
+            res.push(car);
+        }
+    }
+    res.sort(res['id']);
+    return res;
 }
 
 
@@ -77,5 +85,21 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
-
+    let cars = [...car_data];
+    for (let i=0; i<cars.length; i++) {
+        let car = cars[i];
+        let flag = false;
+        for (let y = 0; y<years.length; y++) {
+            let year = years[y];
+            if (car['year']===year) {
+                flag = true;
+            }
+        }
+        if (flag === false) {
+            cars.splice(i,1);
+            i--;
+        }
+    }
+    cars.sort(cars['year']);
+    return cars;
 }
