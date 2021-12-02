@@ -64,15 +64,16 @@ export function searchMpg(car_data, minCity, minHighway) {
  */
 export function searchName(car_data, searchTerm) {
     let cars = [...car_data];
-    let res = [];
+
     for (let i=0; i<cars.length; i++) {
         let car = cars[i];
-        if (car['id'] === searchTerm) {
-            res.push(car);
+        if (!car['id'].includes(searchTerm)) {
+            cars.splice(i, 1);
+            i--;
         }
     }
-    res.sort(res['id']);
-    return res;
+    cars.sort(cars['id']);
+    return cars;
 }
 
 
