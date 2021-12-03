@@ -16,6 +16,7 @@
  */
 export const repeat = (fn, n, ...params) => {
 
+    let result = [];
 };
 
 

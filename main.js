@@ -1,4 +1,6 @@
-import {searchByYear, searchHighPower} from "./src/medium/medium_3.js";
-import mpg_data from "./src/medium/data/mpg_data.js";
+import {getMedian} from "./src/medium/medium_1.js";
 
-console.log(searchByYear(mpg_data, [2010, 2011]))
+let a = [9,7,5,6,3,1]
+a.sort()
+console.log(a)
+console.log(getMedian(a))

@@ -1,5 +1,6 @@
 import {variance} from "./data/stats_helpers.js";
 
+
 /**
  * Gets the sum of an array of numbers.
  * @param array
@@ -26,14 +27,14 @@ export function getSum(array) {
  * console.log(getMedian(array)); // 4.5
  */
 export function getMedian(array) {
- array = array.sort();
- let mid = Math.floor((array.length)/2);
- let med;
- if (array.length % 2 !== 0) {
-  med = array[mid];
+ let n = array.length;
+ var med;
+ let copy = array.sort();
+ if (n % 2 !== 0) {
+  med = copy[Math.floor(n/2)];
  }
  else {
-  med = (array[mid-1] + array[mid])/2
+  med = (copy[n/2-1] + copy[n/2]) / 2;
  }
  return med;
 }
