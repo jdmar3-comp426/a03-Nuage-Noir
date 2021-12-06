@@ -18,7 +18,16 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-
+    let cars = [...car_data];
+    for (let i=0; i<cars.length; i++) {
+        let car = cars[i];
+        if (car['horsepower'] < minHorsepower || car['torque'] < minTorque) {
+            cars.splice(i,1);
+            i--;
+        }
+    }
+    cars.sort(cars['horsepower']);
+    return cars;
 }
 
 
@@ -33,9 +42,17 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
-
+    let cars = [...car_data];
+    for (let i=0; i<cars.length; i++) {
+        let car = cars[i];
+        if (car['highway_mpg'] < minHighway || car['city_mpg'] < minCity) {
+            cars.splice(i,1);
+            i--;
+        }
+    }
+    cars.sort(cars['highway_mpg']);
+    return cars;
 }
-
 
 /**
  * Find all cars where 'id' contains the search term below.
@@ -46,7 +63,17 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
+    let cars = [...car_data];
 
+    for (let i=0; i<cars.length; i++) {
+        let car = cars[i];
+        if (!car['id'].includes(searchTerm)) {
+            cars.splice(i, 1);
+            i--;
+        }
+    }
+    cars.sort(cars['id']);
+    return cars;
 }
 
 
@@ -59,5 +86,21 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
-
+    let cars = [...car_data];
+    for (let i=0; i<cars.length; i++) {
+        let car = cars[i];
+        let flag = false;
+        for (let y = 0; y<years.length; y++) {
+            let year = years[y];
+            if (car['year']===year) {
+                flag = true;
+            }
+        }
+        if (flag === false) {
+            cars.splice(i,1);
+            i--;
+        }
+    }
+    cars.sort(cars['year']);
+    return cars;
 }

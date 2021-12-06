@@ -87,3 +87,5 @@ export const moreStats = {
     makerHybrids: undefined,
     avgMpgByYearAndHybrid: undefined
 };
+
+
